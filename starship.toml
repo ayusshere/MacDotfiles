@@ -1,0 +1,165 @@
+format = """
+[╭─](fg:current_line)\
+$os\
+$directory\
+$git_branch\
+$fill\
+$nodejs\
+$dotnet\
+$python\
+$java\
+$c\
+$cmd_duration\
+$shell\
+$time\
+$username\
+$line_break\
+$character\
+"""
+
+
+palette = 'catppuccin_mocha'
+add_newline = false
+
+[palettes.catppuccin_mocha]
+foreground = '#CDD6F4'
+background = '#1E1E2E' #os icon color
+current_line = '#313244'
+primary = '#11111B'
+box = '#383957'
+
+blue = '#89B4FA'
+cyan = '#94E2D5'
+green = '#A6E3A1'
+orange = '#FAB387'
+red = '#F38BA8'
+cyan1 = '#94E2D5'
+purple = '#CBA6F7'
+pink = '#F5C2E7'
+yellow = '#F9E2AF'
+
+#palette = 'gruvbox_material'
+#add_newline = false
+
+#[palettes.gruvbox_material]
+#foreground = '#D4BE98'    # Main text color (beige)
+#background = '#282828'    # Dark background
+#current_line = '#3C3836'   # Slightly lighter than background
+#primary = '#1D2021'       # Darkest elements
+#box = '#32302F'           # Panel background
+
+## Gruvbox Material accent colors
+#blue = '#7DAEA3'         # Desaturated teal-blue
+#cyan = '#89B482'          # Soft green-cyan
+#green = '#A9B665'         # Olive green
+#orange = '#E78A4E'        # Warm orange
+#red = '#EA6962'           # Soft red
+#cyan1 = '#89B482'         # Same as cyan (Gruvbox doesn't differentiate)
+#purple = '#D3869B'        # Soft purple-pink
+#pink = '#D3869B'          # Same as purple in Gruvbox
+#yellow = '#D8A657'        # Golden yellow
+
+
+[os]
+format = '(fg:current_line)[](fg:cyan1)[$symbol ](fg:box bg:cyan1)[](fg:cyan1)'
+disabled = false
+
+[os.symbols]
+Alpine = ''
+Amazon = ''
+Android = ''
+Arch = ''
+CentOS = ''
+Debian = ''
+EndeavourOS = ''
+Fedora = ''
+FreeBSD = ''
+Garuda = ''
+Gentoo = ''
+Linux = ''
+Macos = ''
+Manjaro = ''
+Mariner = ''
+Mint = ''
+NetBSD = ''
+NixOS = ''
+OpenBSD = ''
+OpenCloudOS = ''
+openEuler = ''
+openSUSE = ''
+OracleLinux = '⊂⊃'
+Pop = ''
+Raspbian = ''
+Redhat = ''
+RedHatEnterprise = ''
+Solus = ''
+SUSE = ''
+Ubuntu = ''
+Unknown = ''
+Windows = ''
+
+[directory]
+format = '[─](fg:current_line)[](fg:pink)[ ](fg:box bg:pink)[](fg:pink bg:box)[ $read_only$truncation_symbol$path](fg:foreground bg:box)[](fg:box)'
+home_symbol = "󰟒 ~/"
+truncation_symbol = ' '
+truncation_length = 2
+read_only = '󱧴 '
+read_only_style = ''
+
+[git_branch]
+format = '[ ](fg:current_line)[](fg:red)[$symbol](fg:box bg:red)[](fg:red bg:box)[ $branch](fg:foreground bg:box)[](fg:box)'
+symbol = ' '
+
+[nodejs]
+format = '[ ](fg:current_line)[](fg:green)[$symbol](fg:primary bg:green)[](fg:green bg:box)[ $version](fg:foreground bg:box)[](fg:box)'
+symbol = '󰎙 Node.js'
+
+[dotnet]
+format = '[ ](fg:current_line)[](fg:purple)[$symbol](fg:primary bg:purple)[](fg:purple bg:box)[ $tfm](fg:foreground bg:box)[](fg:box)'
+symbol = ' .NET'
+
+[python]
+format = '[ ](fg:current_line)[](fg:green)[$symbol](fg:primary bg:green)[](fg:green bg:box)[ $version](fg:foreground bg:box)[](fg:box)'
+symbol = ' python'
+
+[java]
+format = '[ ](fg:current_line)[](fg:red)[$symbol](fg:primary bg:red)[](fg:red bg:box)[ $version](fg:foreground bg:box)[](fg:box)'
+symbol = ' Java'
+
+[c]
+format = '[ ](fg:current_line)[](fg:blue)[$symbol](fg:primary bg:blue)[](fg:blue bg:box)[ $version](fg:foreground bg:box)[](fg:box)'
+symbol = ' C'
+
+[fill]
+symbol = '─'
+style = 'fg:current_line'
+
+[cmd_duration]
+min_time = 500
+format = '[ ](fg:current_line)[](fg:orange)[ ](fg:primary bg:orange)[](fg:orange bg:box)[ $duration ](fg:foreground bg:box)[](fg:box)'
+
+[shell]
+format = '[ ](fg:current_line)[](fg:blue)[ ](fg:primary bg:blue)[](fg:blue bg:box)[ $indicator](fg:foreground bg:box)[](fg:box)'
+unknown_indicator = 'shell'
+powershell_indicator = 'powershell'
+fish_indicator = 'fish'
+disabled = true
+
+[time]
+format = '[](fg:current_line)[](fg:purple)[󱑀 ](fg:box bg:purple)[](fg:purple bg:box)[ $time](fg:foreground bg:box)[](fg:box)'
+time_format = '%H:%M'
+disabled = false
+
+[username]
+format = '[─](fg:current_line)[](fg:yellow)[ ](fg:box bg:yellow)[](fg:yellow bg:box)[ $user](fg:foreground bg:box)[](fg:box) '
+show_always = true
+
+[character]
+format = """
+[╰─$symbol](fg:current_line) """
+success_symbol = '[](fg:cyan1)'
+error_symbol = '[](fg:bold red)'
+vimcmd_symbol = '[](bold fg:green)'
+vimcmd_replace_one_symbol = '[](bold fg:purple)'
+vimcmd_replace_symbol = '[](bold fg:purple)'
+vimcmd_visual_symbol = '[󰒉](bold fg:yellow)'
