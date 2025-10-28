@@ -13,6 +13,7 @@ $cmd_duration\
 $shell\
 $time\
 $username\
+$custom.thought\
 $line_break\
 $character\
 """
@@ -22,21 +23,21 @@ palette = 'catppuccin_mocha'
 add_newline = false
 
 [palettes.catppuccin_mocha]
-foreground = '#c2daf6'    # text
-background = '#1e1e2e'    # base / os icon color
-current_line = '#313244'   # surface0
-primary = '#11111b'        # crust
-box = '#383957'            # custom box (unchanged, optional)
+foreground = '#CDD6F4'
+background = '#1E1E2E' #os icon color
+current_line = '#313244'
+primary = '#11111B'
+box = '#383957'
 
-blue = '#61c5fa'           # blue
-cyan = '#94e2d5'           # teal
-green = '#aae484'          # green
-orange = '#fbb470'         # peach / orange
-red = '#f88a96'            # red
-cyan1 = '#94e2d5'          # teal (same as cyan)
-purple = '#b4befe'         # lavender
-pink = '#f5c2e7'           # pink
-yellow = '#f0e893'         # yellow
+blue = '#89B4FA'
+cyan = '#94E2D5'
+green = '#A6E3A1'
+orange = '#FAB387'
+red = '#F38BA8'
+cyan1 = '#94E2D5'
+purple = '#CBA6F7'
+pink = '#F5C2E7'
+yellow = '#F9E2AF'
 
 
 [os]
@@ -129,6 +130,11 @@ format = '[](fg:current_line)[](fg:purple)[󱑀 ](fg:box bg:purple)[](fg:p
 time_format = '%H:%M'
 disabled = true
 
+[custom.thought]
+command = "shuf -n 1 ~/.config/starship/thoughts.txt"
+when = "true"
+format = '[ ](fg:cyan1 bg:box)[$output](fg:foreground bg:cyan1)[](fg:cyan1 bg:box) '
+
 [username]
 format = '[─](fg:current_line)[](fg:yellow)[ ](fg:box bg:yellow)[](fg:yellow bg:box)[ $user](fg:foreground bg:box)[](fg:box) '
 show_always = false
@@ -142,4 +148,3 @@ vimcmd_symbol = '[](bold fg:green)'
 vimcmd_replace_one_symbol = '[](bold fg:purple)'
 vimcmd_replace_symbol = '[](bold fg:purple)'
 vimcmd_visual_symbol = '[󰒉](bold fg:yellow)'
-

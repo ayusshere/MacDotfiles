@@ -126,16 +126,17 @@ keymap = [
 	# Goto
 	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go to the home directory" },
 	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Go to the config directory" },
-	{ on = [ "g", "d" ],       run = "cd /run/media/z0mbi3/windows/Descargas",   desc = "Go to the downloads directory" },
-	{ on = [ "g", "i" ],       run = "cd /run/media/z0mbi3/windows/Imagenes", desc = "Go to the images directory" },
-	{ on = [ "g", "v" ],       run = "cd /run/media/z0mbi3/windows/Videos", desc = "Go to the video directory" },
-	{ on = [ "g", "f" ],       run = "cd /run/media/z0mbi3/windows/Documentos", desc = "Go to the documents directory" },
-	{ on = [ "g", "l" ],       run = "cd /run/media/z0mbi3/windows/Linux", desc = "Go to the Linux directory" },
+	{ on = [ "g", "d" ],       run = "cd ~/Downloads/",   desc = "Go to the downloads directory" },
+	{ on = [ "g", "p" ],       run = "cd ~/Pictures/", desc = "Go to the images directory" },
+	{ on = [ "g", "v" ],       run = "cd ~/Movies/", desc = "Go to the video directory" },
+	{ on = [ "g", "f" ],       run = "cd ~/Documents/", desc = "Go to the documents directory" },
+	{ on = [ "g", "b" ],       run = "cd ~/Developer/Java-DSA/2.DSA/", desc = "Go to the DSA directory" },
+	{ on = [ "g", "l" ],       run = "cd /", desc = "Go to the Linux directory" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Go to a directory interactively" },
 
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
-
+	{ on = "w",     run = "close", desc = "Close task manager" },
 	{ on = "1", run = "tab_switch 0", desc = "Switch to the first tab" },
 	{ on = "2", run = "tab_switch 1", desc = "Switch to the second tab" },
 	{ on = "3", run = "tab_switch 2", desc = "Switch to the third tab" },
@@ -153,7 +154,7 @@ keymap = [
 	{ on = "}", run = "tab_swap 1",  desc = "Swap current tab with next tab" },
 
 	# Tasks
-	{ on = "w", run = "tasks_show", desc = "Show task manager" },
+   #{ on = "w", run = "tasks_show", desc = "Show task manager" },
 
 	# Help
 	{ on = "~",    run = "help", desc = "Open help" },

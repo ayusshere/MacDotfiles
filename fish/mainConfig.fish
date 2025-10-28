@@ -2,7 +2,7 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 
     # ===== ADD KEYBINDINGS HERE =====
-    bind 'ƒ' forward-word  # Option+F to accept next word
+    bind ƒ forward-word # Option+F to accept next word
     # bind \cf forward-word  # Alternative: Ctrl+F
 
     function histnum
