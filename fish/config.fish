@@ -25,6 +25,7 @@ if status is-interactive
     alias gs='git status'
     alias ga='git add .'
     alias gcm='git commit -m'
+    alias gp='git push'
     alias ghostty='open -na Ghostty.app'
     alias vsc='code .'
     alias lst='eza -T --git-ignore'
