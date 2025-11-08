@@ -1,0 +1,147 @@
+add_newline = false
+palette = 'catppuccin_mocha'
+
+format = """
+[╭─](fg:current_line)\
+$os\
+$directory\
+$git_branch\
+$fill\
+$nodejs\
+$dotnet\
+$python\
+$java\
+$c\
+$cmd_duration\
+$shell\
+$time\
+$username\
+$line_break\
+$character\
+"""
+
+
+[palettes.catppuccin_mocha]
+foreground = '#c2daf6'    # text
+background = '#1e1e2e'    # base / os icon color
+current_line = '#313244'   # surface0
+primary = '#11111b'        # crust
+box = '#383957'            # custom box (unchanged, optional)
+
+blue = '#61c5fa'           # blue
+cyan = '#94e2d5'           # teal
+green = '#aae484'          # green
+orange = '#fbb470'         # peach / orange
+red = '#f88a96'            # red
+cyan1 = '#94e2d5'          # teal (same as cyan)
+purple = '#b4befe'         # lavender
+pink = '#f5c2e7'           # pink
+yellow = '#f0e893'         # yellow
+
+
+[os]
+format = '(fg:cyan1)[$symbol ](fg:box bg:cyan1)'
+disabled = true
+
+[os.symbols]
+Alpine = ''
+Amazon = ''
+Android = ''
+Arch = ''
+CentOS = ''
+Debian = ''
+EndeavourOS = ''
+Fedora = ''
+FreeBSD = ''
+Garuda = ''
+Gentoo = ''
+Linux = ''
+Macos = ''
+Manjaro = ''
+Mariner = ''
+Mint = ''
+NetBSD = ''
+NixOS = ''
+OpenBSD = ''
+OpenCloudOS = ''
+openEuler = ''
+openSUSE = ''
+OracleLinux = '⊂⊃'
+Pop = ''
+Raspbian = ''
+Redhat = ''
+RedHatEnterprise = ''
+Solus = ''
+SUSE = ''
+Ubuntu = ''
+Unknown = ''
+Windows = ''
+
+[directory]
+format = '[](fg:current_line)[](fg:pink)[ ](fg:box bg:pink)[](fg:pink bg:box)[ $read_only$truncation_symbol$path](fg:foreground bg:box)[](fg:box)'
+#format = '[](fg:current_line)[](fg:pink)[ ](fg:box bg:pink)[](fg:pink bg:box)[ $read_only$truncation_symbol$path](fg:foreground bg:box)[](fg:box)'
+home_symbol = "󰟒 ~/"
+truncation_symbol = ' '
+truncation_length = 2
+read_only = '󱧴 '
+read_only_style = ''
+
+[git_branch]
+format = '[ ](fg:current_line)[](fg:red)[$symbol](fg:box bg:red)[](fg:red bg:box)[ $branch](fg:foreground bg:box)[](fg:box)'
+symbol = ' '
+
+[nodejs]
+format = '[ ](fg:current_line)[](fg:green)[$symbol](fg:primary bg:green)[](fg:green bg:box)[ $version](fg:foreground bg:box)[](fg:box)'
+symbol = '󰎙 Node'
+
+[dotnet]
+format = '[ ](fg:current_line)[](fg:purple)[$symbol](fg:primary bg:purple)[](fg:purple bg:box)[ $tfm](fg:foreground bg:box)[](fg:box)'
+symbol = ' .NET'
+
+[python]
+format = '[ ](fg:current_line)[](fg:green)[$symbol](fg:primary bg:green)[](fg:green bg:box)[ $version](fg:foreground bg:box)[](fg:box)'
+symbol = ' python'
+
+[java]
+format = '[ ](fg:current_line)[](fg:red)[$symbol](fg:primary bg:red)[](fg:red bg:box)[ $version](fg:foreground bg:box)[](fg:box)'
+symbol = ' Java'
+
+[c]
+format = '[ ](fg:current_line)[](fg:blue)[$symbol](fg:primary bg:blue)[](fg:blue bg:box)[ $version](fg:foreground bg:box)[](fg:box)'
+symbol = ' C'
+
+[fill]
+symbol = ' '
+style = 'fg:current_line'
+
+[cmd_duration]
+min_time = 500
+format = '[ ](fg:current_line)[](fg:orange)[ ](fg:primary bg:orange)[](fg:orange bg:box)[ $duration ](fg:foreground bg:box)[](fg:box)'
+
+[shell]
+format = '[ ](fg:current_line)[](fg:blue)[ ](fg:primary bg:blue)[](fg:blue bg:box)[ $indicator](fg:foreground bg:box)[](fg:box)'
+unknown_indicator = 'shell'
+powershell_indicator = 'powershell'
+fish_indicator = 'fish'
+disabled = true
+
+[time]
+format = '[](fg:current_line)[](fg:purple)[󱑀 ](fg:box bg:purple)[](fg:purple bg:box)[ $time](fg:foreground bg:box)[](fg:box)'
+time_format = '%H:%M'
+disabled = true
+
+[username]
+format = '[─](fg:current_line)[](fg:yellow)[ ](fg:box bg:yellow)[](fg:yellow bg:box)[ $user](fg:foreground bg:box)[](fg:box) '
+show_always = false
+
+[character]
+format = """
+[╰─$symbol](fg:current_line) """
+success_symbol = '[](fg:cyan1)'
+#error_symbol = '[](fg:bold red)'
+error_symbol = '[](fg:bold red)'
+vimcmd_symbol = '[](bold fg:green)'
+vimcmd_replace_one_symbol = '[](bold fg:purple)'
+vimcmd_replace_symbol = '[](bold fg:purple)'
+vimcmd_visual_symbol = '[󰒉](bold fg:yellow)'
+

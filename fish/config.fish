@@ -1,7 +1,20 @@
-#──────────────────────────────────────────────
-# 🌟  Starship Prompt
-#──────────────────────────────────────────────
 starship init fish | source
+
+# Transient prompt setup
+function starship_transient_prompt_func
+   echo " "
+    starship module character
+end
+enable_transience
+
+# --- Keep insert mode after transient prompt ---
+if status is-interactive
+    function keep_insert_mode --on-event fish_prompt
+        if set -q fish_bind_mode
+            set fish_bind_mode insert
+        end
+    end
+end
 
 #──────────────────────────────────────────────
 # 🐚  Interactive Session Setup
@@ -11,7 +24,9 @@ if status is-interactive
     #──────────────────────────────────────────
     # ⚡ Aliases
     #──────────────────────────────────────────
-    alias ls='eza --icons=always --color=always'
+    alias j='java'
+    alias n='node'
+    alias ls='eza --icons=always --color=always --ignore-glob='Icon?''
     alias lsa='ls -a'
     alias ll='ls -la'
     alias cat='bat --theme=base16'
@@ -26,7 +41,6 @@ if status is-interactive
     alias ga='git add .'
     alias gcm='git commit -m'
     alias gp='git push'
-    alias ghostty='open -na Ghostty.app'
     alias vsc='code .'
     alias lst='eza -T --git-ignore'
     alias hist='history | cat'
@@ -36,7 +50,6 @@ if status is-interactive
     alias aerospaceconfig='nvim ~/.aerospace.toml'
     alias starshipconfig='nvim ~/.config/starship.toml'
     alias chart1='bat ~/Library/Java\ Big\ O\ Complexity\ Cheatsheet.md'
-    alias chart2='bat ~/Library/Trick\ And\ Others\ Cheetsheet'
     alias touch='bass touch'  # Run bash command in Fish safely
 
     #──────────────────────────────────────────
@@ -47,36 +60,47 @@ if status is-interactive
 
         # 30 Cool Random Messages 🌀
         set messages \
-            "🚫 '$cmd'? Command not found. Try again, space cowboy 🤠" \
+            "🤠 '$cmd'? Not in this rodeo." \
+            "💀 '$cmd'? Dead on arrival." \
+            "🤖 '$cmd'? AI says nope." \
+            "⚡ '$cmd'? Too powerful to exist." \
+            "👻 '$cmd'? Ghost command detected." \
+            "🚀 '$cmd'? Took off without you." \
+            "🧠 '$cmd'? Brain.exe not found." \
+            "🔮 '$cmd'? Crystal ball says 404." \
+            "💻 '$cmd'? Not in the matrix." \
+            "😈 '$cmd'? Even hell denied it."\
             "💀 '$cmd'? That command died before it was born." \
             "🧙‍♂️ '$cmd'? Only ancient wizards know that spell." \
-            "🐙 '$cmd'? Deep sea command... not found." \
             "🔥 '$cmd'? Too hot to exist!" \
             "🤖 '$cmd'? Even AI doesn’t know that one." \
             "🌀 '$cmd'? Lost in the terminal multiverse." \
-            "👻 '$cmd'? A ghost command, perhaps?" \
             "⚡ '$cmd'? Shockingly, it’s not real." \
-            "🎩 '$cmd'? Magic trick failed — command vanished." \
-            "🚀 '$cmd'? Maybe it took off without you." \
-            "🐍 '$cmd'? Not even Python knows that one." \
-            "🧩 '$cmd'? Doesn’t fit anywhere in the system." \
-            "🧠 '$cmd'? Hmm… I can’t find it in my memory." \
             "🎮 '$cmd'? Not a cheat code, buddy." \
-            "😵 '$cmd'? That command just broke my brain." \
-            "🕵️ '$cmd'? I've searched everywhere — nothing found!" \
-            "🐉 '$cmd'? Only dragons can execute that." \
             "🥴 '$cmd'? You sure that’s even a command?" \
-            "💫 '$cmd'? Floating somewhere in cyberspace." \
             "🧊 '$cmd'? Frozen… can’t execute that one." \
             "💣 '$cmd'? Boom! Not recognized." \
-            "🎭 '$cmd'? That command’s wearing a disguise." \
-            "🔮 '$cmd'? The crystal ball shows… nothing." \
-            "🦄 '$cmd'? Mythical. Doesn’t exist here." \
-            "💻 '$cmd'? That one’s not in the matrix." \
-            "🧱 '$cmd'? Error — ran into a digital wall." \
             "📡 '$cmd'? Signal lost. Try again later." \
-            "🪄 '$cmd'? Poof! It vanished into thin air." \
-            "😈 '$cmd'? Even the devil doesn’t know that one."
+            "💀 '$cmd'? That one’s long gone." \
+            "🤖 '$cmd'? Even robots don’t know it." \
+            "🐉 '$cmd'? Only dragons can run that." \
+            "⚡ '$cmd'? Too strong to exist." \
+            "👻 '$cmd'? Ghost command spotted." \
+            "🧙 '$cmd'? Not in the spellbook." \
+            "🔥 '$cmd'? Burned out of memory." \
+            "🐍 '$cmd'? Python refused that." \
+            "🚀 '$cmd'? Flew away somewhere." \
+            "💫 '$cmd'? Lost in space." \
+            "🧠 '$cmd'? Not in my memory." \
+            "🔮 '$cmd'? The future says no." \
+            "🪄 '$cmd'? Magic failed." \
+            "😵 '$cmd'? That broke my brain." \
+            "🎩 '$cmd'? Vanished like magic." \
+            "💻 '$cmd'? Not in the system." \
+            "😈 '$cmd'? Even the devil said no."
+
+
+
 
         # 🎨 Random Color + Message
         set colors red yellow magenta cyan green blue
@@ -91,7 +115,7 @@ if status is-interactive
     #──────────────────────────────────────────
     # 📁 “y” Shortcut for Yazi File Manager
     #──────────────────────────────────────────
-    function y
+    function f
         set tmp (mktemp -t "yazi-cwd.XXXXXX")
         yazi $argv --cwd-file="$tmp"
 
@@ -112,96 +136,45 @@ bind -M insert \eb backward-word
 #──────────────────────────────────────────────
 # 🌍  Environment Setup
 #──────────────────────────────────────────────
-eval "$(/opt/homebrew/bin/brew shellenv)"
+set -gx PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
+set -gx HOMEBREW_PREFIX /opt/homebrew
+set -gx HOMEBREW_CELLAR /opt/homebrew/Cellar
+set -gx HOMEBREW_REPOSITORY /opt/homebrew
 zoxide init fish | source
 
 #──────────────────────────────────────────────
 # 🔍  FZF Integration
 #──────────────────────────────────────────────
-if type -q fzf
-    fzf --fish | source
-end
+source (fzf --fish | psub)
+
+
 
 # Use fd as FZF’s source (faster search)
-set -x FZF_DEFAULT_COMMAND 'fd --type f --hidden --exclude .git --exclude .cache'
+#
+# Base fd command for fzf (exclude hidden and useless files)
+set -x FZF_DEFAULT_COMMAND "fd --type f --hidden \
+  --exclude '.*' \
+  --exclude '.git' \
+  --exclude '.cache' \
+  --exclude '.DS_Store' \
+  --exclude 'node_modules' \
+  --exclude 'venv' \
+  --exclude '__pycache__' \
+  --exclude 'tmp' \
+  --exclude 'dist' \
+  --exclude 'build'"
+
+# Use the same command for Ctrl+T (file search)
 set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
-set -x FZF_ALT_C_COMMAND 'fd --type d --hidden --exclude .git --exclude .cache'
 
-
-function show_thought
-    # 💡 Motivational thoughts
-    sleep 0.05
-    set thoughts \
-set thoughts \
-    "🌱 Stay curious, code smart" \
-    "💫 Dream big, ship bigger" \
-    "⚙️ Errors teach, mastery follows" \
-    "🪲 Bugs = hidden lessons" \
-    "🌻 Learn constantly, grow infinitely" \
-    "🚀 Fail fast, learn faster" \
-    "💡 Think logic, build passion" \
-    "🐛 Debugging = path to mastery" \
-    "🧠 Outsmart the problem" \
-    "✨ Create logic that inspires" \
-    "💻 Brain = ultimate IDE" \
-    "🛠️ Build, break, repeat" \
-    "🎯 Practice patterns, gain power" \
-    "🔥 Frustration fuels growth" \
-    "🏋️ DSA = brain gym" \
-    "🌄 Consistency beats talent" \
-    "🚢 Keep learning, keep shipping" \
-    "🧼 Clean code, clear mind" \
-    "💥 One bug closer to mastery" \
-    "🧩 Think like a compiler, act like a creator" \
-    "☕ Coffee + code = life" \
-    "⚡ Optimize everything" \
-    "🌍 DSA trains mind, Dev shapes world" \
-    "🔑 Focus, iterate, conquer" \
-    "🕹️ Code smart, debug faster" \
-    "📈 Small wins, big growth" \
-    "💎 Logic sharp, creativity sharper" \
-    "🖤 Solve, ship, repeat" \
-    "🔥 Passion fuels productivity" \
-    "🌟 Build cool things daily" \
-    "🧠 Mind gym: solve, refactor, repeat" \
-    "💡 Idea > syntax > implementation" \
-    "🪲 Bug hunting = brain hacking" \
-    "🚀 Push limits, ship features" \
-    "🎯 One problem, one solution, one victory" \
-    "🛠️ Tools sharpen talent, code sharpens mind" \
-    "🌱 Growth mindset > instant results" \
-    "💫 Think algorithms, live creatively" \
-    "⚡ Speed + accuracy = mastery" \
-    "🐛 Debug your logic, not your life" \
-    "🧩 Piece problems together like puzzles" \
-    "💻 Code is poetry for the logical mind" \
-    "🔥 Burn distractions, fuel focus" \
-    "🏋️ Push memory, lift complexity"
-
-
-    # 🎲 Get a random index safely (Fish style)
-    set count_thoughts (count $thoughts)
-    set random_index (random 1 $count_thoughts)
-
-    set msg "$thoughts[$random_index]"
-
-    # 🖥️ Center the text
-    set width (tput cols)
-    set msg_length (string length --visible "$msg")
-    set pad (math "floor(($width - $msg_length) / 2)")
-    if test $pad -lt 0
-        set pad 0
-    end
-
-    # 🎨 Pick a random Catppuccin-like color
-    set colors AAE484 89B4FA F5C2E7 FAB387 B4BEFE F9E2AF
-    set color_index (random 1 (count $colors))
-
-    set_color -o $colors[$color_index]
-    printf "%*s%s\n" $pad "" "$msg"
-    set_color normal
-end
-
-show_thought
-
+# Use a directory-only version for Alt+C (cd)
+set -x FZF_ALT_C_COMMAND "fd --type d --hidden \
+  --exclude '.*' \
+  --exclude '.git' \
+  --exclude '.cache' \
+  --exclude 'node_modules' \
+  --exclude 'venv' \
+  --exclude 'tmp' \
+  --exclude 'dist' \
+  --exclude 'build'"
 

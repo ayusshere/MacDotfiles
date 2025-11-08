@@ -130,7 +130,7 @@ keymap = [
 	{ on = [ "g", "p" ],       run = "cd ~/Pictures/", desc = "Go to the images directory" },
 	{ on = [ "g", "v" ],       run = "cd ~/Movies/", desc = "Go to the video directory" },
 	{ on = [ "g", "f" ],       run = "cd ~/Documents/", desc = "Go to the documents directory" },
-	{ on = [ "g", "b" ],       run = "cd ~/Developer/Java-DSA/2.DSA/", desc = "Go to the DSA directory" },
+	{ on = [ "g", "b" ],       run = "cd ~/Developer/", desc = "Go to the DSA directory" },
 	{ on = [ "g", "l" ],       run = "cd /", desc = "Go to the Linux directory" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Go to a directory interactively" },
 

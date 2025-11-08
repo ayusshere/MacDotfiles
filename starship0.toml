@@ -1,3 +1,6 @@
+add_newline = false
+palette = 'catppuccin_mocha'
+
 format = """
 [╭─](fg:current_line)\
 $os\
@@ -13,36 +16,32 @@ $cmd_duration\
 $shell\
 $time\
 $username\
-$custom.thought\
 $line_break\
 $character\
 """
 
 
-palette = 'catppuccin_mocha'
-add_newline = false
-
 [palettes.catppuccin_mocha]
-foreground = '#CDD6F4'
-background = '#1E1E2E' #os icon color
-current_line = '#313244'
-primary = '#11111B'
-box = '#383957'
+foreground = '#c2daf6'    # text
+background = '#1e1e2e'    # base / os icon color
+current_line = '#313244'   # surface0
+primary = '#11111b'        # crust
+box = '#383957'            # custom box (unchanged, optional)
 
-blue = '#89B4FA'
-cyan = '#94E2D5'
-green = '#A6E3A1'
-orange = '#FAB387'
-red = '#F38BA8'
-cyan1 = '#94E2D5'
-purple = '#CBA6F7'
-pink = '#F5C2E7'
-yellow = '#F9E2AF'
+blue = '#61c5fa'           # blue
+cyan = '#94e2d5'           # teal
+green = '#aae484'          # green
+orange = '#fbb470'         # peach / orange
+red = '#f88a96'            # red
+cyan1 = '#94e2d5'          # teal (same as cyan)
+purple = '#b4befe'         # lavender
+pink = '#f5c2e7'           # pink
+yellow = '#f0e893'         # yellow
 
 
 [os]
 format = '(fg:current_line)[](fg:cyan1)[$symbol ](fg:box bg:cyan1)[](fg:cyan1)'
-disabled = false
+disabled = true
 
 [os.symbols]
 Alpine = ''
@@ -79,7 +78,8 @@ Unknown = ''
 Windows = ''
 
 [directory]
-format = '[─](fg:current_line)[](fg:pink)[ ](fg:box bg:pink)[](fg:pink bg:box)[ $read_only$truncation_symbol$path](fg:foreground bg:box)[](fg:box)'
+format = '[](fg:current_line)[](fg:pink)[ ](fg:box bg:pink)[](fg:pink bg:box)[ $read_only$truncation_symbol$path](fg:foreground bg:box)[](fg:box)'
+#format = '[](fg:current_line)[](fg:pink)[ ](fg:box bg:pink)[](fg:pink bg:box)[ $read_only$truncation_symbol$path](fg:foreground bg:box)[](fg:box)'
 home_symbol = "󰟒 ~/"
 truncation_symbol = ' '
 truncation_length = 2
@@ -92,7 +92,7 @@ symbol = ' '
 
 [nodejs]
 format = '[ ](fg:current_line)[](fg:green)[$symbol](fg:primary bg:green)[](fg:green bg:box)[ $version](fg:foreground bg:box)[](fg:box)'
-symbol = '󰎙 Node.js'
+symbol = '󰎙 Node'
 
 [dotnet]
 format = '[ ](fg:current_line)[](fg:purple)[$symbol](fg:primary bg:purple)[](fg:purple bg:box)[ $tfm](fg:foreground bg:box)[](fg:box)'
@@ -130,11 +130,6 @@ format = '[](fg:current_line)[](fg:purple)[󱑀 ](fg:box bg:purple)[](fg:p
 time_format = '%H:%M'
 disabled = true
 
-[custom.thought]
-command = "shuf -n 1 ~/.config/starship/thoughts.txt"
-when = "true"
-format = '[ ](fg:cyan1 bg:box)[$output](fg:foreground bg:cyan1)[](fg:cyan1 bg:box) '
-
 [username]
 format = '[─](fg:current_line)[](fg:yellow)[ ](fg:box bg:yellow)[](fg:yellow bg:box)[ $user](fg:foreground bg:box)[](fg:box) '
 show_always = false
@@ -143,8 +138,10 @@ show_always = false
 format = """
 [╰─$symbol](fg:current_line) """
 success_symbol = '[](fg:cyan1)'
-error_symbol = '[](fg:bold red)'
+#error_symbol = '[](fg:bold red)'
+error_symbol = '[](fg:bold red)'
 vimcmd_symbol = '[](bold fg:green)'
 vimcmd_replace_one_symbol = '[](bold fg:purple)'
 vimcmd_replace_symbol = '[](bold fg:purple)'
 vimcmd_visual_symbol = '[󰒉](bold fg:yellow)'
+

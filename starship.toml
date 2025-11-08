@@ -1,145 +1,127 @@
+# ──────────────────────────────────────────────
+#   🌌  STARSHIP PROMPT — Catppuccin Mocha Glow
+# ──────────────────────────────────────────────
+
+add_newline = true
+palette = 'catppuccin_mocha'
+
 format = """
-[╭─](fg:current_line)\
 $os\
 $directory\
 $git_branch\
+$git_status\
 $fill\
 $nodejs\
-$dotnet\
 $python\
 $java\
 $c\
+$rust\
+$docker_context\
 $cmd_duration\
-$shell\
 $time\
 $username\
 $line_break\
 $character\
 """
 
-
-palette = 'catppuccin_mocha'
-add_newline = false
-
-[palettes.catppuccin_mocha]
-foreground = '#c2daf6'    # text
-background = '#1e1e2e'    # base / os icon color
-current_line = '#313244'   # surface0
-primary = '#11111b'        # crust
-box = '#383957'            # custom box (unchanged, optional)
-
-blue = '#61c5fa'           # blue
-cyan = '#94e2d5'           # teal
-green = '#aae484'          # green
-orange = '#fbb470'         # peach / orange
-red = '#f88a96'            # red
-cyan1 = '#94e2d5'          # teal (same as cyan)
-purple = '#b4befe'         # lavender
-pink = '#f5c2e7'           # pink
-yellow = '#f0e893'         # yellow
-
-
-[os]
-format = '(fg:current_line)[](fg:cyan1)[$symbol ](fg:box bg:cyan1)[](fg:cyan1)'
-disabled = false
-
-[os.symbols]
-Alpine = ''
-Amazon = ''
-Android = ''
-Arch = ''
-CentOS = ''
-Debian = ''
-EndeavourOS = ''
-Fedora = ''
-FreeBSD = ''
-Garuda = ''
-Gentoo = ''
-Linux = ''
-Macos = ''
-Manjaro = ''
-Mariner = ''
-Mint = ''
-NetBSD = ''
-NixOS = ''
-OpenBSD = ''
-OpenCloudOS = ''
-openEuler = ''
-openSUSE = ''
-OracleLinux = '⊂⊃'
-Pop = ''
-Raspbian = ''
-Redhat = ''
-RedHatEnterprise = ''
-Solus = ''
-SUSE = ''
-Ubuntu = ''
-Unknown = ''
-Windows = ''
+# ──────────────────────────────────────────────
+# MODULE SETTINGS
+# ──────────────────────────────────────────────
 
 [directory]
-format = '[─](fg:current_line)[](fg:pink)[ ](fg:box bg:pink)[](fg:pink bg:box)[ $read_only$truncation_symbol$path](fg:foreground bg:box)[](fg:box)'
-home_symbol = "󰟒 ~/"
-truncation_symbol = ' '
+style = "bold fg:orange"
+truncation_symbol = ' '
 truncation_length = 2
 read_only = '󱧴 '
-read_only_style = ''
-
-[git_branch]
-format = '[ ](fg:current_line)[](fg:red)[$symbol](fg:box bg:red)[](fg:red bg:box)[ $branch](fg:foreground bg:box)[](fg:box)'
-symbol = ' '
-
-[nodejs]
-format = '[ ](fg:current_line)[](fg:green)[$symbol](fg:primary bg:green)[](fg:green bg:box)[ $version](fg:foreground bg:box)[](fg:box)'
-symbol = '󰎙 Node.js'
-
-[dotnet]
-format = '[ ](fg:current_line)[](fg:purple)[$symbol](fg:primary bg:purple)[](fg:purple bg:box)[ $tfm](fg:foreground bg:box)[](fg:box)'
-symbol = ' .NET'
-
-[python]
-format = '[ ](fg:current_line)[](fg:green)[$symbol](fg:primary bg:green)[](fg:green bg:box)[ $version](fg:foreground bg:box)[](fg:box)'
-symbol = ' python'
-
-[java]
-format = '[ ](fg:current_line)[](fg:red)[$symbol](fg:primary bg:red)[](fg:red bg:box)[ $version](fg:foreground bg:box)[](fg:box)'
-symbol = ' Java'
-
-[c]
-format = '[ ](fg:current_line)[](fg:blue)[$symbol](fg:primary bg:blue)[](fg:blue bg:box)[ $version](fg:foreground bg:box)[](fg:box)'
-symbol = ' C'
+read_only_style = 'fg:red'
 
 [fill]
 symbol = ' '
 style = 'fg:current_line'
 
+[git_branch]
+symbol = ' '
+style = "fg:green bold"
+format = "[$symbol$branch ]($style)"
+
+[git_status]
+style = 'fg:#facc15'
+staged = '[●$count](fg:green)'      # added / staged
+modified = '[~$count](fg:yellow)'   # modified
+deleted = '[-$count](fg:red)'       # deleted
+untracked = '[+$count](fg:blue)'    # new files
+stashed = '[≡$count](fg:purple)'    # stashed
+format = '([ $staged$modified$deleted$untracked$stashed$ahead_behind]($style)) '
+
+[nodejs]
+symbol = " "
+style = "fg:green bold"
+format = "[ $symbol$version ]($style)"
+
+[python]
+symbol = " "
+style = "fg:yellow bold"
+format = "[ $symbol$version ]($style)"
+
+[java]
+symbol = " "
+style = "fg:red bold"
+format = "[ $symbol$version ]($style)"
+
+[c]
+symbol = " "
+style = "fg:cyan bold"
+format = "[ $symbol$version ]($style)"
+
+[rust]
+symbol = " "
+style = "fg:orange bold"
+format = "[ $symbol$version ]($style)"
+
+[docker_context]
+symbol = " "
+style = "fg:blue bold"
+format = "[ $symbol$context ]($style)"
+
 [cmd_duration]
 min_time = 500
-format = '[ ](fg:current_line)[](fg:orange)[ ](fg:primary bg:orange)[](fg:orange bg:box)[ $duration ](fg:foreground bg:box)[](fg:box)'
-
-[shell]
-format = '[ ](fg:current_line)[](fg:blue)[ ](fg:primary bg:blue)[](fg:blue bg:box)[ $indicator](fg:foreground bg:box)[](fg:box)'
-unknown_indicator = 'shell'
-powershell_indicator = 'powershell'
-fish_indicator = 'fish'
-disabled = true
+format = "[ $duration]($style)"
+style = "fg:purple bold"
 
 [time]
-format = '[](fg:current_line)[](fg:purple)[󱑀 ](fg:box bg:purple)[](fg:purple bg:box)[ $time](fg:foreground bg:box)[](fg:box)'
-time_format = '%H:%M'
 disabled = true
+time_format = "%H:%M"
+format = "[󱑀 $time]($style)"
+style = "fg:lavender bold"
 
 [username]
-format = '[─](fg:current_line)[](fg:yellow)[ ](fg:box bg:yellow)[](fg:yellow bg:box)[ $user](fg:foreground bg:box)[](fg:box) '
-show_always = false
+style_user = "fg:rosewater bold"
+format = "[ $user]($style_user)"
+
+[shell]
+style = "fg:lavender"
+fish_indicator = '󰈺'
+disabled = false
 
 [character]
-format = """
-[╰─$symbol](fg:current_line) """
-success_symbol = '[](fg:cyan1)'
-error_symbol = '[](fg:bold red)'
-vimcmd_symbol = '[](bold fg:green)'
-vimcmd_replace_one_symbol = '[](bold fg:purple)'
-vimcmd_replace_symbol = '[](bold fg:purple)'
-vimcmd_visual_symbol = '[󰒉](bold fg:yellow)'
+success_symbol = '[❯](bold fg:green)'
+error_symbol = '[❯](bold fg:red)'
+vimcmd_symbol = '[❮](bold fg:yellow)'
+vimcmd_replace_symbol = '[❮](bold fg:purple)'
+vimcmd_visual_symbol = '[❮](bold fg:cyan)'
 
+# ──────────────────────────────────────────────
+#  🎨 Catppuccin Mocha Palette
+# ──────────────────────────────────────────────
+[palettes.catppuccin_mocha]
+foreground = "#c2daf6"
+current_line = "#89b4fa"
+blue = "#89b4fa"
+lavender = "#b4befe"
+green = "#a6e3a1"
+yellow = "#f9e2af"
+orange = "#fab387"
+red = "#f38ba8"
+cyan = "#94e2d5"
+rosewater = "#f5e0dc"
+purple = "#cba6f7"

@@ -27,6 +27,7 @@ sixel_fraction  = 20
 ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
 
+
 [opener]
 edit = [
     { run = '${EDITOR:-nvim} "$@"', desc = "$EDITOR", block = true, for = "unix" },
