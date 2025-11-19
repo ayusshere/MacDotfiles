@@ -15,17 +15,16 @@ window-theme = dark
 macos-non-native-fullscreen = true
 macos-option-as-alt = true
 macos-titlebar-style = tabs
-macos-titlebar-proxy-icon = visible 
+macos-titlebar-proxy-icon = visible
 window-titlebar-foreground = #5c3aac
 
 # --- Appearance ---
-#background = #0A1722
-background-blur = 10
-background-opacity = 0.97
+unfocused-split-opacity = 0.20
+background = #181825
+#background-blur = 10
+#background-opacity = 0.98
 cursor-color = #aae484
 cursor-text = #000000
-#selection-background = #2b2c3f
-#selection-foreground = #000000
 theme = Catppuccin Mocha
 window-padding-x = 25
 window-padding-balance = true
@@ -50,27 +49,11 @@ palette = 13=#f5c2e7
 palette = 14=#89dceb
 palette = 15=#f5e0dc
 
-# (Alternative palette variants commented out on purpose)
-#palette = 0=#45475a
-#palette = 1=#f38ba8
-#palette = 2=#a6e3a1
-#palette = 3=#f9e2af
-#palette = 4=#74C7EC
-#palette = 5=#f5c2e7
-#palette = 6=#94e2d5
-#palette = 7=#a6adc8
-#palette = 8=#585b70
-#palette = 9=#f37799
-#palette = 10=#89d88b
-#palette = 11=#ebd391
-#palette = 12=#74a8fc
-#palette = 13=#f2aede
-#palette = 14=#6bd7ca
-#palette = 15=#bac2df
-
 # --- Font Settings ---
 font-family = "Maple Mono NF"
-font-feature = zero,calt,cv02,ss11
+font-size = 23
+font-feature = calt,ss11,ss03,ss10
+
 font-thicken = true
 font-thicken-strength = 130
 
@@ -78,8 +61,11 @@ font-thicken-strength = 130
 mouse-hide-while-typing = true
 mouse-shift-capture = true
 quick-terminal-position = center
+copy-on-select = true
 
 # --- Keybindings ---
-keybind = cmd+t=toggle_quick_terminal
+keybind = super+t=toggle_quick_terminal
+keybind = super+enter=ignore
 
 title = "💀"
+

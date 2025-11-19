@@ -18,21 +18,77 @@ $c\
 $rust\
 $docker_context\
 $cmd_duration\
-$time\
 $username\
+$time\
+$shell\
 $line_break\
 $character\
 """
 
 # ──────────────────────────────────────────────
+#  🎨 Catppuccin Mocha Palette
+# ──────────────────────────────────────────────
+[palettes.catppuccin_mocha]
+foreground = "#c2daf6"    # text
+current_line = "#61c5fa"  # using "blue"
+blue = "#61c5fa"
+lavender = "#b4befe"
+green = "#aae484"
+yellow = "#f0e893"
+orange = "#fbb470"        # using "peach"
+red = "#f88a96"
+cyan = "#94e2d5"          # teal
+rosewater = "#f5e0dc"
+purple = "#dd99f4"        # using "mauve"
+
+
+# ──────────────────────────────────────────────
 # MODULE SETTINGS
 # ──────────────────────────────────────────────
 
+[os.symbols]
+Alpine = ''
+Amazon = ''
+Android = ''
+Arch = ''
+CentOS = ''
+Debian = ''
+EndeavourOS = ''
+Fedora = ''
+FreeBSD = ''
+Garuda = ''
+Gentoo = ''
+Linux = ''
+Macos = ''
+Manjaro = ''
+Mariner = ''
+Mint = ''
+NetBSD = ''
+NixOS = ''
+OpenBSD = ''
+OpenCloudOS = ''
+openEuler = ''
+openSUSE = ''
+OracleLinux = '⊂⊃'
+Pop = ''
+Raspbian = ''
+Redhat = ''
+RedHatEnterprise = ''
+Solus = ''
+SUSE = ''
+Ubuntu = ''
+Unknown = ''
+Windows = ''
+
+[os]
+format = '[$symbol ](fg:red bold)'
+disabled = true
+
 [directory]
-style = "bold fg:orange"
+style = "bold fg:purple"
 truncation_symbol = ' '
 truncation_length = 2
-read_only = '󱧴 '
+read_only = ' '
 read_only_style = 'fg:red'
 
 [fill]
@@ -40,88 +96,77 @@ symbol = ' '
 style = 'fg:current_line'
 
 [git_branch]
-symbol = ' '
+symbol = ' '
 style = "fg:green bold"
 format = "[$symbol$branch ]($style)"
 
 [git_status]
-style = 'fg:#facc15'
+style = 'fg:orange'
 staged = '[●$count](fg:green)'      # added / staged
 modified = '[~$count](fg:yellow)'   # modified
 deleted = '[-$count](fg:red)'       # deleted
 untracked = '[+$count](fg:blue)'    # new files
 stashed = '[≡$count](fg:purple)'    # stashed
-format = '([ $staged$modified$deleted$untracked$stashed$ahead_behind]($style)) '
+format = '([ $staged$modified$deleted$untracked$stashed$ahead_behind]($style)) '
 
 [nodejs]
-symbol = " "
+symbol = " "
 style = "fg:green bold"
-format = "[ $symbol$version ]($style)"
+format = "[ $symbol$version]($style)"
 
 [python]
 symbol = " "
 style = "fg:yellow bold"
-format = "[ $symbol$version ]($style)"
+format = "[ $symbol$version]($style)"
 
 [java]
-symbol = " "
+symbol = " "
 style = "fg:red bold"
-format = "[ $symbol$version ]($style)"
+format = "[ $symbol$version]($style)"
 
 [c]
 symbol = " "
 style = "fg:cyan bold"
-format = "[ $symbol$version ]($style)"
+format = "[ $symbol$version]($style)"
 
 [rust]
 symbol = " "
 style = "fg:orange bold"
-format = "[ $symbol$version ]($style)"
+format = "[ $symbol$version]($style)"
 
 [docker_context]
 symbol = " "
 style = "fg:blue bold"
-format = "[ $symbol$context ]($style)"
+format = "[ $symbol$context]($style)"
 
 [cmd_duration]
 min_time = 500
-format = "[ $duration]($style)"
-style = "fg:purple bold"
+format = "[  $duration]($style)"
+style = "fg:orange bold"
 
 [time]
-disabled = true
 time_format = "%H:%M"
-format = "[󱑀 $time]($style)"
+format = "[ 󱑀 $time]($style)"
 style = "fg:lavender bold"
+disabled = true
 
 [username]
-style_user = "fg:rosewater bold"
-format = "[ $user]($style_user)"
+format = "[  $user](bold fg:yellow)"
+show_always = false
 
 [shell]
-style = "fg:lavender"
-fish_indicator = '󰈺'
+powershell_indicator = 'Powershell'
+#fish_indicator = '  FISH' #sometime its irritating to show fish always so i turned it off
+fish_indicator = ''
+bash_indicator = '  BASH' #but i want that other shell show 
+zsh_indicator = '  ZSH'
+style = "fg:cyan bold"
 disabled = false
 
 [character]
 success_symbol = '[❯](bold fg:green)'
 error_symbol = '[❯](bold fg:red)'
-vimcmd_symbol = '[❮](bold fg:yellow)'
+vimcmd_symbol = '[❮](bold fg:blue)'
 vimcmd_replace_symbol = '[❮](bold fg:purple)'
-vimcmd_visual_symbol = '[❮](bold fg:cyan)'
+vimcmd_visual_symbol = '[󰼢](bold fg:purple)'
 
-# ──────────────────────────────────────────────
-#  🎨 Catppuccin Mocha Palette
-# ──────────────────────────────────────────────
-[palettes.catppuccin_mocha]
-foreground = "#c2daf6"
-current_line = "#89b4fa"
-blue = "#89b4fa"
-lavender = "#b4befe"
-green = "#a6e3a1"
-yellow = "#f9e2af"
-orange = "#fab387"
-red = "#f38ba8"
-cyan = "#94e2d5"
-rosewater = "#f5e0dc"
-purple = "#cba6f7"
