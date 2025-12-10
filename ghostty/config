@@ -10,6 +10,7 @@ confirm-close-surface = false
 shell-integration = fish
 window-save-state = always
 window-theme = dark
+#working-directory=inherit
 
 # --- macOS Specific ---
 macos-non-native-fullscreen = true
@@ -20,17 +21,19 @@ window-titlebar-foreground = #5c3aac
 
 # --- Appearance ---
 unfocused-split-opacity = 0.20
-background = #181825
+background = #1B1A29
+#background = #1B1A29
 #background-blur = 10
-#background-opacity = 0.98
+#background-opacity = 0.97
 cursor-color = #aae484
 cursor-text = #000000
 theme = Catppuccin Mocha
-window-padding-x = 25
+window-padding-x = 30
 window-padding-balance = true
 
 # --- Palette ---
 # ── Custom Ghostty Palette ──
+# --- Palette (Synced with VS Code Overrides) ---
 palette = 0=#313244
 palette = 1=#f88a96
 palette = 2=#aae484
@@ -38,9 +41,9 @@ palette = 3=#f0e893
 palette = 4=#61c5fa
 palette = 5=#dd99f4
 palette = 6=#94e2d5
-palette = 7=#c2daf6
+palette = 7=#b0c9dd
 
-palette = 8=#45475a
+palette = 8=#585b70
 palette = 9=#fd9db2
 palette = 10=#b4befe
 palette = 11=#fbb470
@@ -51,8 +54,8 @@ palette = 15=#f5e0dc
 
 # --- Font Settings ---
 font-family = "Maple Mono NF"
-font-size = 23
-font-feature = calt,ss11,ss03,ss10
+font-size = 25
+font-feature = calt, ss11, ss06, ss10, ss03
 
 font-thicken = true
 font-thicken-strength = 130
@@ -67,5 +70,4 @@ copy-on-select = true
 keybind = super+t=toggle_quick_terminal
 keybind = super+enter=ignore
 
-title = "💀"
 

@@ -27,11 +27,11 @@ if status is-interactive
     # --------------------- #
     # [INFO] BASIC ALIASES  #
     # --------------------- #
-    alias j='java'
     alias n='node'
     alias p='python3'
     alias ls='eza --icons=always --color=always --ignore-glob="Icon?"'
-    alias cat='bat --theme=base16'
+    alias cat='bat --theme="Catppuccin Mocha"'
+    alias bat='bat --theme="Catppuccin Mocha"'
     alias lsa='ls -a'
     alias ll='ls -la'
     alias install='brew install -v'
@@ -40,24 +40,29 @@ if status is-interactive
     alias search='brew search'
     alias df='df -h'
     alias ff='fastfetch'
-    alias vsc='code .'
+    alias vsc='codium .'
     alias lst='eza -T --git-ignore'
     alias hist='history | cat'
     alias fishconfig='nvim ~/.config/fish/config.fish'
+    alias zshconfig='nvim ~/.zshrc'
     alias ghosttyconfig='nvim ~/.config/ghostty/config'
     alias yaziconfig='nvim ~/.config/yazi/yazi.toml'
     alias aerospaceconfig='nvim ~/.aerospace.toml'
     alias starshipconfig='nvim ~/.config/starship.toml'
-    alias chart1='bat ~/Library/Java\ Big\ O\ Complexity\ Cheatsheet.md'
+    alias chart1='bat ~/Library/Java\ Big\ O\ Complexity\ Cheatsheet.java'
 
     # ---------------------------- #
     # [INFO] GIT ALIASES FOR FISH  #
     # ---------------------------- #
     alias g='git'
 
+    #some shorthand
+    alias gac='git add . && git commit -m'
+    alias gl1='git log -1 --stat' #shws last log
+
     # Status
     alias gs='git status'
-    alias gss='git status -s'
+    alias gss='git status -sb'
     alias gd='git diff'
     alias gds='git diff --staged'
     alias gl='git log --oneline --graph --decorate'
@@ -121,6 +126,9 @@ if status is-interactive
     alias grv='git remote -v'
     alias grao='git remote add origin'
     alias grrm='git remote remove'
+
+
+# set -x TLDR_AUTO_UPDATE_DISABLED true
 
     # -------------------------------- #
     # [info] COMMAND NOT FOUND HANDLER #
@@ -194,7 +202,6 @@ bind -M default \e\x7f backward-kill-word
 
 function fish_user_key_bindings
     fish_vi_key_bindings
-
     #
     # ----- VISUAL MODE -----
     #
@@ -236,10 +243,13 @@ zoxide init fish | source
 # -------------------- #
 # [info] CONFIGURATION #
 # -------------------- #
+
+# Enable fzf keybindings for fish
 if type -q fzf
     source (fzf --fish | psub)
 end
 
+# ---------- FZF UI COLORS ----------
 set -Ux FZF_DEFAULT_OPTS "\
 --color=bg+:#181825,bg:#181825,spinner:#F5E0DC,hl:#F38BA8 \
 --color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
@@ -247,6 +257,12 @@ set -Ux FZF_DEFAULT_OPTS "\
 --color=selected-bg:#45475A \
 --color=border:#6C7086,label:#CDD6F4"
 
+# ---------- FZF PREVIEW (BAT) ----------
+set -Ux FZF_PREVIEW_OPTS "\
+--preview='bat --style=numbers --color=always --theme=\"Catppuccin Mocha\" {}' \
+--preview-window=right:60%:wrap"
+
+# ---------- DEFAULT SEARCH (fd) ----------
 set -x FZF_DEFAULT_COMMAND "fd --type f --hidden \
   --exclude '.*' \
   --exclude '.git' \
@@ -259,8 +275,10 @@ set -x FZF_DEFAULT_COMMAND "fd --type f --hidden \
   --exclude 'dist' \
   --exclude 'build'"
 
-set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
+# ---------- CTRL + T (files) ----------
+set -Ux FZF_CTRL_T_OPTS "$FZF_DEFAULT_OPTS $FZF_PREVIEW_OPTS"
 
+# ---------- ALT + C (directories) ----------
 set -x FZF_ALT_C_COMMAND "fd --type d --hidden \
   --exclude '.*' \
   --exclude '.git' \
