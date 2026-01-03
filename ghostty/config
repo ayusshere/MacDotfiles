@@ -75,5 +75,5 @@ keybind = super+t=toggle_quick_terminal
 keybind = super+enter=ignore
 
 # Force a fixed title with emoji
-title = "🫦"
+title = "👀"
 title-report = false

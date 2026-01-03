@@ -243,8 +243,12 @@ keymap = [
     ], run = "cd ~/Documents/", desc = "Go to the documents directory" },
     { on = [
         "g",
-        "b",
+        "e",
     ], run = "cd ~/Developer/", desc = "Go to the DSA directory" },
+    { on = [
+        "g",
+        "w",
+    ], run = "cd ~/Pictures/Wallpapers/", desc = "Go to the DSA directory" },
     { on = [
         "g",
         "l",
