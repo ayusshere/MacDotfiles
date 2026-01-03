@@ -1,0 +1,83 @@
+# Main background, empty for terminal default
+theme[main_bg]="#1B1A29"  # CozyCat base
+
+# Main text color
+theme[main_fg]="#b0c4dd"  # CozyCat text
+
+# Title color for boxes
+theme[title]="#b0c4dd"  # CozyCat text
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#74c7ec"  # CozyCat sapphire
+
+# Background color of selected item in processes box
+theme[selected_bg]="#54586c"  # CozyCat surface2
+
+# Foreground color of selected item in processes box
+theme[selected_fg]="#74c7ec"  # CozyCat sapphire
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#9399b0"  # CozyCat subtext0
+
+# Color of text appearing on top of graphs
+theme[graph_text]="#f5e0dc"  # CozyCat rosewater
+
+# Background color of the percentage meters
+theme[meter_bg]="#54586c"  # CozyCat surface2
+
+# Misc colors for processes box including mini cpu graphs, memory graph, status text
+theme[proc_misc]="#f5e0dc"  # CozyCat rosewater
+
+# CPU, Memory, Network, Proc box outline colors
+theme[cpu_box]="#dd99f4"   # CozyCat mauve
+theme[mem_box]="#aae484"   # CozyCat green
+theme[net_box]="#fd9db2"   # CozyCat maroon
+theme[proc_box]="#60b2e1"  # CozyCat blue
+
+# Box divider line and small boxes line color
+theme[div_line]="#767b8b"  # CozyCat overlay2
+
+# Temperature graph color (Green -> Yellow -> Red)
+theme[temp_start]="#aae484"   # CozyCat green
+theme[temp_mid]="#f0e893"     # CozyCat yellow
+theme[temp_end]="#e27882"     # CozyCat red
+
+# CPU graph colors (Teal -> Lavender)
+theme[cpu_start]="#94e2d5"  # CozyCat teal
+theme[cpu_mid]="#74c7ec"    # CozyCat sapphire
+theme[cpu_end]="#b4befe"    # CozyCat lavender
+
+# Mem/Disk free meter (Mauve -> Lavender -> Blue)
+theme[free_start]="#dd99f4"  # CozyCat mauve
+theme[free_mid]="#b4befe"    # CozyCat lavender
+theme[free_end]="#60b2e1"    # CozyCat blue
+
+# Mem/Disk cached meter (Sapphire -> Lavender)
+theme[cached_start]="#74c7ec"  # CozyCat sapphire
+theme[cached_mid]="#60b2e1"    # CozyCat blue
+theme[cached_end]="#b4befe"    # CozyCat lavender
+
+# Mem/Disk available meter (Peach -> Red)
+theme[available_start]="#fbb470"  # CozyCat peach
+theme[available_mid]="#fd9db2"    # CozyCat maroon
+theme[available_end]="#e27882"    # CozyCat red
+
+# Mem/Disk used meter (Green -> Sky)
+theme[used_start]="#aae484"  # CozyCat green
+theme[used_mid]="#89dceb"    # CozyCat sky
+theme[used_end]="#89dceb"    # CozyCat sky
+
+# Download graph colors (Peach -> Red)
+theme[download_start]="#fbb470"  # CozyCat peach
+theme[download_mid]="#fd9db2"    # CozyCat maroon
+theme[download_end]="#e27882"    # CozyCat red
+
+# Upload graph colors (Green -> Sky)
+theme[upload_start]="#aae484"  # CozyCat green
+theme[upload_mid]="#89dceb"    # CozyCat sky
+theme[upload_end]="#89dceb"    # CozyCat sky
+
+# Process box color gradient for threads, mem and cpu usage (Sapphire -> Mauve)
+theme[process_start]="#74c7ec"  # CozyCat sapphire
+theme[process_mid]="#b4befe"    # CozyCat lavender
+theme[process_end]="#dd99f4"    # CozyCat mauve

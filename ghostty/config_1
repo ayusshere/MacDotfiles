@@ -1,0 +1,47 @@
+# ===============================
+#   GHOSTTY CONFIGURATION FILE
+# ===============================
+
+# --- General ---
+auto-update = download
+auto-update-channel = stable
+clipboard-read = allow
+confirm-close-surface = false
+shell-integration = fish
+window-save-state = always
+window-theme = dark
+
+# --- macOS Specific ---
+macos-non-native-fullscreen = true
+macos-option-as-alt = true
+macos-titlebar-style = tabs
+macos-titlebar-proxy-icon = visible
+window-titlebar-foreground = #5c3aac
+
+# --- Appearance ---
+unfocused-split-opacity = 0.20
+#background-blur = 10
+#background-opacity = 0.97
+theme = CozyCat
+window-padding-x = 30
+window-padding-balance = true
+
+
+# --- Font Settings ---
+font-family = "Maple Mono NF"
+font-size = 21
+font-feature = calt, ss11, ss06, ss10, ss03
+
+font-thicken = true
+font-thicken-strength = 130
+
+# --- Behavior ---
+mouse-hide-while-typing = true
+mouse-shift-capture = true
+quick-terminal-position = center
+copy-on-select = true
+
+# --- Keybindings ---
+keybind = super+t=toggle_quick_terminal
+keybind = super+enter=ignore
+

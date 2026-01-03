@@ -10,7 +10,7 @@ confirm-close-surface = false
 shell-integration = fish
 window-save-state = always
 window-theme = dark
-#working-directory=inherit
+
 
 # --- macOS Specific ---
 macos-non-native-fullscreen = true
@@ -19,43 +19,47 @@ macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = visible
 window-titlebar-foreground = #5c3aac
 
+
 # --- Appearance ---
 unfocused-split-opacity = 0.20
-background = #1B1A29
-#background = #1B1A29
 #background-blur = 10
 #background-opacity = 0.97
-cursor-color = #aae484
-cursor-text = #000000
-theme = Catppuccin Mocha
 window-padding-x = 30
 window-padding-balance = true
 
-# --- Palette ---
-# ── Custom Ghostty Palette ──
-# --- Palette (Synced with VS Code Overrides) ---
-palette = 0=#313244
-palette = 1=#f88a96
-palette = 2=#aae484
-palette = 3=#f0e893
-palette = 4=#61c5fa
-palette = 5=#dd99f4
+# --- CozyCat ---
+palette = 0=#2b2c3b
+palette = 1=#d8747f
+palette = 2=#96c885
+palette = 3=#ddd38a
+palette = 4=#5aa3d9
+palette = 5=#c694ed
 palette = 6=#94e2d5
-palette = 7=#b0c9dd
+palette = 7=#b6c7df
 
-palette = 8=#585b70
-palette = 9=#fd9db2
+palette = 8=#51546a
+palette = 9=#e08fa6
 palette = 10=#b4befe
-palette = 11=#fbb470
+palette = 11=#e8a76f
 palette = 12=#74c7ec
-palette = 13=#f5c2e7
+palette = 13=#e3b1d8
 palette = 14=#89dceb
-palette = 15=#f5e0dc
+palette = 15=#eed6d2
+
+background = #201f34
+cursor-color = #DDD38A
+cursor-text = #000000
+
+foreground = #b6c7df
+
+selection-background = #5c5f73
+selection-foreground = #cdd6f4
 
 # --- Font Settings ---
 font-family = "Maple Mono NF"
-font-size = 25
-font-feature = calt, ss11, ss06, ss10, ss03
+font-size = 20.5
+font-feature = calt,zero, ss11, ss06, ss10, ss03
+
 
 font-thicken = true
 font-thicken-strength = 130
@@ -70,4 +74,6 @@ copy-on-select = true
 keybind = super+t=toggle_quick_terminal
 keybind = super+enter=ignore
 
-
+# Force a fixed title with emoji
+title = "🫦"
+title-report = false

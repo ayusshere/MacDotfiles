@@ -29,6 +29,7 @@ if status is-interactive
     # --------------------- #
     alias n='node'
     alias p='python3'
+    alias fd='fd --color=always --hidden --exclude .git'
     alias ls='eza --icons=always --color=always --ignore-glob="Icon?"'
     alias cat='bat --theme="Catppuccin Mocha"'
     alias bat='bat --theme="Catppuccin Mocha"'
@@ -38,9 +39,14 @@ if status is-interactive
     alias reinstall='brew reinstall -v'
     alias uninstall='brew uninstall -v'
     alias search='brew search'
+    alias outdated='brew outdated'
+    alias upgrade='brew upgrade'
     alias df='df -h'
+    alias vim='nvim'
     alias ff='fastfetch'
     alias vsc='codium .'
+    alias record='asciinema r -i 2.5'
+    alias record='asciinema play'
     alias lst='eza -T --git-ignore'
     alias hist='history | cat'
     alias fishconfig='nvim ~/.config/fish/config.fish'
@@ -167,7 +173,7 @@ if status is-interactive
             "💻 '$cmd'? Not in the system." \
             "😈 '$cmd'? Even the devil said no."
 
-        set colors red yellow magenta cyan green blue
+        set colors yellow magenta cyan green blue
 
         set message (random choice $messages)
         set color (random choice $colors)
@@ -249,13 +255,12 @@ if type -q fzf
     source (fzf --fish | psub)
 end
 
-# ---------- FZF UI COLORS ----------
 set -Ux FZF_DEFAULT_OPTS "\
---color=bg+:#181825,bg:#181825,spinner:#F5E0DC,hl:#F38BA8 \
---color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
---color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
---color=selected-bg:#45475A \
---color=border:#6C7086,label:#CDD6F4"
+--color=bg+:#201f34,bg:#201f34,spinner:#eed6d2,hl:#e08fa6 \
+--color=fg:#b6c7df,header:#e08fa6,info:#c694ed,pointer:#eed6d2 \
+--color=marker:#b4befe,fg+:#b6c7df,prompt:#c694ed,hl+:#e08fa6 \
+--color=selected-bg:#54586c \
+--color=border:#7a809a,label:#b6c7df"
 
 # ---------- FZF PREVIEW (BAT) ----------
 set -Ux FZF_PREVIEW_OPTS "\
@@ -270,7 +275,6 @@ set -x FZF_DEFAULT_COMMAND "fd --type f --hidden \
   --exclude '.DS_Store' \
   --exclude 'node_modules' \
   --exclude 'venv' \
-  --exclude '__pycache__' \
   --exclude 'tmp' \
   --exclude 'dist' \
   --exclude 'build'"
