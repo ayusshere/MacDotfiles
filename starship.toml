@@ -125,7 +125,7 @@ style = "fg:yellow bold"
 format = "[ $symbol$version]($style)"
 
 [java]
-symbol = " "
+symbol = "󰅶 "
 style = "fg:red bold"
 format = "[ $symbol$version]($style)"
 
@@ -169,7 +169,7 @@ style = "fg:cyan bold"
 disabled = false
 
 [character]
-success_symbol = '[❯](fg:yellow)'
+success_symbol = '[❯](fg:green)'
 error_symbol = '[❯](fg:red)'
 vimcmd_symbol = '[❮](fg:blue)'
 vimcmd_replace_symbol = '[❮](fg:purple)'

@@ -22,8 +22,8 @@ window-titlebar-foreground = #5c3aac
 
 # --- Appearance ---
 unfocused-split-opacity = 0.20
-#background-blur = 10
-#background-opacity = 0.97
+# background-blur = 10
+# background-opacity = 0.97
 window-padding-x = 30
 window-padding-balance = true
 
@@ -62,7 +62,8 @@ font-feature = calt,zero, ss11, ss06, ss10, ss03
 
 
 font-thicken = true
-font-thicken-strength = 130
+font-thicken-strength = 180
+
 
 # --- Behavior ---
 mouse-hide-while-typing = true

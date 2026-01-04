@@ -31,11 +31,11 @@ keyword = "#c694ed"
 builtin = "#96c885"
 function = "#e08fa6"
 variable = "#b6c7df"
-constant = "#74c7ec"
+constant = "#60B2E1"
 string = "#e8a76f"
 number = "#ddd38a"
 comment = "#9aa0bb"
-type = "#94e2d5"
+type = "#60B2E1"
 punctuation = "#a4aac6"
 
 # ───────────────── Highlight ─────────────────
@@ -48,13 +48,13 @@ invisible = "#51546a"
 
 # ───────────────── Tabs ─────────────────
 [tabs]
-active = { fg = "#201f34", bg = "#93E2D5", bold = true }
-inactive = { fg = "#93E2D5", bg = "#3e404f" }
+active = { fg = "#201f34", bg = "#60B2E1", bold = true }
+inactive = { fg = "#60B2E1", bg = "#3e404f" }
 
 # ───────────────── Mode ─────────────────
 [mode]
-normal_main = { fg = "#201f34", bg = "#74c7ec", bold = true }
-normal_alt = { fg = "#74c7ec", bg = "#2b2c3b" }
+normal_main = { fg = "#201f34", bg = "#60B2E1", bold = true }
+normal_alt = { fg = "#60B2E1", bg = "#2b2c3b" }
 
 select_main = { fg = "#201f34", bg = "#c694ed", bold = true }
 select_alt = { fg = "#c694ed", bg = "#2b2c3b" }
@@ -71,7 +71,7 @@ progress_label = { fg = "#201f34", bold = true }
 progress_normal = { fg = "#96c885", bg = "#3e404f" }
 progress_error = { fg = "#ddd38a", bg = "#d8747f" }
 
-perm_type = { fg = "#74c7ec" }
+perm_type = { fg = "#60B2E1" }
 perm_read = { fg = "#ddd38a" }
 perm_write = { fg = "#d8747f" }
 perm_exec = { fg = "#96c885" }
@@ -79,21 +79,21 @@ perm_sep = { fg = "#7a809a" }
 
 # ───────────────── Input ─────────────────
 [input]
-border = { fg = "#74c7ec" }
-title = { fg = "#b4befe" }
+border = { fg = "#60B2E1" }
+title = { fg = "#60B2E1" }
 value = { fg = "#b6c7df" }
 selected = { reversed = true }
 
 # ───────────────── Pick ─────────────────
 [pick]
-border = { fg = "#74c7ec" }
+border = { fg = "#60B2E1" }
 active = { fg = "#e3b1d8", bold = true }
 inactive = { fg = "#9aa0bb" }
 
 # ───────────────── Confirm ─────────────────
 [confirm]
-border = { fg = "#74c7ec" }
-title = { fg = "#74c7ec" }
+border = { fg = "#60B2E1" }
+title = { fg = "#60B2E1" }
 body = { fg = "#b6c7df" }
 list = {}
 btn_yes = { fg = "#96c885", bold = true }
@@ -101,18 +101,18 @@ btn_no = { fg = "#d8747f" }
 
 # ───────────────── Completion ─────────────────
 [cmp]
-border = { fg = "#74c7ec" }
+border = { fg = "#60B2E1" }
 
 # ───────────────── Tasks ─────────────────
 [tasks]
-border = { fg = "#74c7ec" }
-title = { fg = "#b4befe" }
+border = { fg = "#60B2E1" }
+title = { fg = "#60B2E1" }
 hovered = { fg = "#e3b1d8", bold = true }
 
 # ───────────────── Which-Key ─────────────────
 [which]
 mask = { bg = "#2b2c3b" }
-cand = { fg = "#94e2d5" }
+cand = { fg = "#60B2E1" }
 rest = { fg = "#9aa0bb" }
 desc = { fg = "#e3b1d8" }
 separator = "  "
@@ -120,7 +120,7 @@ separator_style = { fg = "#7a809a" }
 
 # ───────────────── Help ─────────────────
 [help]
-on = { fg = "#94e2d5" }
+on = { fg = "#60B2E1" }
 run = { fg = "#e3b1d8" }
 desc = { fg = "#9aa0bb" }
 hovered = { bg = "#5c5f73", bold = true }
@@ -128,7 +128,7 @@ footer = { fg = "#b6c7df", bg = "#3e404f" }
 
 # ───────────────── Notify ─────────────────
 [notify]
-title_info = { fg = "#94e2d5" }
+title_info = { fg = "#60B2E1" }
 title_warn = { fg = "#ddd38a" }
 title_error = { fg = "#d8747f" }
 
@@ -341,7 +341,7 @@ exts = [
     { name = "msf", text = "", fg = "#60B2E1" },
     { name = "blp", text = "󰺾", fg = "#60B2E1" },
     { name = "less", text = "", fg = "#54586C" },
-    { name = "sh", text = "", fg = "#565866" },
+    { name = "sh", text = "", fg = "#96c885" },
     { name = "odg", text = "", fg = "#F0E893" },
     { name = "mint", text = "󰌪", fg = "#AAE484" },
     { name = "dll", text = "", fg = "#11111b" },
