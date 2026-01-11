@@ -5,6 +5,7 @@
 [mgr]
 ratio = [2, 4, 3]
 sort_by = "natural"
+linemode = "size"
 sort_reverse = false
 sort_dir_first = true
 show_hidden = false
@@ -25,22 +26,22 @@ image_quality = 80
 [opener]
 edit = [
     { run = '${EDITOR:-nvim} "$@"', desc = " nvim", block = true, for = "unix" },
-    { run = '${EDITOR:-codium} "$@"', desc = " codium", block = true, for = "unix" },
-    { run = 'code %*', orphan = true, for = "windows" },
-    { run = 'code -w %*', block = true, for = "windows" },
+    { run = 'codium "$@"', desc = " codium", block = true, for = "unix" },
+    { run = 'code -w "$@"', desc = " vscode", block = true, for = "unix" },
+    { run = 'code -w %*', desc = " vscode", block = true, for = "windows" },
 ]
 open = [
     { run = 'xdg-open "$1"', for = "linux" },
-    { run = 'open "$@"', desc = " open", for = "macos" },
+    { run = 'open "$1"', desc = " open", for = "macos" },
     { run = 'start "" "%1"', orphan = true, for = "windows" },
 ]
 reveal = [
     { run = 'xdg-open "$(dirname "$1")"', for = "linux" },
-    { run = 'open -R "$1"', desc = "󰀶 finder", for = "macos" },
+    { run = 'open -R "$1"', desc = "󰈈 reveal", for = "macos" },
     { run = 'explorer /select,"%1"', orphan = true, for = "windows" },
 ]
 extract = [
-    { run = 'ya pub extract --list "$@"', for = "unix" },
+    { run = 'ya pub extract --list "$@"', desc = " extract here", for = "unix" },
     { run = 'ya pub extract --list %*', for = "windows" },
 ]
 play = [
@@ -51,20 +52,56 @@ play = [
 
 [open]
 rules = [
-    { name = "*/", use = [
+    # ───────────────── Directories ─────────────────
+    { mime = "inode/directory", use = [
         "edit",
         "open",
         "reveal",
     ] },
+    { mime = "application/x-apple-diskimage", use = "finder" },
+    # ───────────────── Text / Code ─────────────────
     { mime = "text/*", use = [
         "edit",
         "reveal",
     ] },
+    { mime = "application/json", use = [
+        "edit",
+        "reveal",
+    ] },
+    { mime = "application/xml", use = [
+        "edit",
+        "reveal",
+    ] },
+    { mime = "application/x-yaml", use = [
+        "edit",
+        "reveal",
+    ] },
+    { mime = "application/toml", use = [
+        "edit",
+        "reveal",
+    ] },
+    { mime = "text/markdown", use = [
+        "edit",
+        "reveal",
+    ] },
+
+    # ───────────────── Images ─────────────────
     { mime = "image/*", use = [
         "open",
         "reveal",
         "set-wallpaper",
     ] },
+
+    # ───────────────── Fonts ─────────────────
+    { mime = "font/*", use = [
+        "open",
+        "reveal",
+    ] },
+    { mime = "application/font-sfnt", use = [
+        "open",
+        "reveal",
+    ] },
+    # ───────────────── Audio / Video ─────────────────
     { mime = "audio/*", use = [
         "play",
         "reveal",
@@ -73,16 +110,79 @@ rules = [
         "play",
         "reveal",
     ] },
-    { mime = "application/*", use = [
+    # ───────────────── PDFs / Docs ─────────────────
+    { mime = "application/pdf", use = [
+        "open",
+        "reveal",
+    ] },
+    { mime = "application/msword", use = [
+        "open",
+        "reveal",
+    ] },
+    { mime = "application/vnd.openxmlformats-officedocument.wordprocessingml.document", use = [
+        "open",
+        "reveal",
+    ] },
+    { mime = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", use = [
+        "open",
+        "reveal",
+    ] },
+    { mime = "application/vnd.openxmlformats-officedocument.presentationml.presentation", use = [
+        "open",
+        "reveal",
+    ] },
+
+    # ───────────────── Archives ─────────────────
+    { mime = "application/zip", use = [
         "extract",
         "reveal",
     ] },
+    { mime = "application/x-tar", use = [
+        "extract",
+        "reveal",
+    ] },
+    { mime = "application/gzip", use = [
+        "extract",
+        "reveal",
+    ] },
+    { mime = "application/x-7z-compressed", use = [
+        "extract",
+        "reveal",
+    ] },
+    { mime = "application/x-rar", use = [
+        "extract",
+        "reveal",
+    ] },
+
+    # ───────────────── Disk Images / Installers ─────────────────
+    { mime = "application/vnd.apple.installer+xml", use = [
+        "open",
+        "reveal",
+    ] },
+
+    { url = "*.dmg", use = [
+        "open",
+        "reveal",
+    ] },
+
+    # ───────────────── Executables / Binaries ─────────────────
+    { mime = "application/x-mach-binary", use = [
+        "open",
+        "reveal",
+    ] },
+    { mime = "application/octet-stream", use = [
+        "open",
+        "reveal",
+    ] },
+
+    # ───────────────── Empty / Unknown ─────────────────
     { mime = "inode/empty", use = [
         "edit",
         "reveal",
     ] },
-    { name = "*", use = [
-        "open",
+
+    # ───────────────── FINAL FALLBACK ─────────────────
+    { use = [
         "reveal",
     ] },
 ]

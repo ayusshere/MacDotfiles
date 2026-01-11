@@ -19,11 +19,10 @@ macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = visible
 window-titlebar-foreground = #5c3aac
 
-
 # --- Appearance ---
 unfocused-split-opacity = 0.20
-# background-blur = 10
-# background-opacity = 0.97
+# background-blur = 20
+# background-opacity = 0.95
 window-padding-x = 30
 window-padding-balance = true
 
@@ -57,7 +56,7 @@ selection-foreground = #cdd6f4
 
 # --- Font Settings ---
 font-family = "Maple Mono NF"
-font-size = 20.5
+font-size = 20
 font-feature = calt,zero, ss11, ss06, ss10, ss03
 
 

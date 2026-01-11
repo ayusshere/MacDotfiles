@@ -231,6 +231,10 @@ keymap = [
     ], run = "cd ~/Downloads/", desc = "Go to the downloads directory" },
     { on = [
         "g",
+        "m",
+    ], run = "cd ~/Music/", desc = "Go to the downloads directory" },
+    { on = [
+        "g",
         "p",
     ], run = "cd ~/Pictures/", desc = "Go to the images directory" },
     { on = [

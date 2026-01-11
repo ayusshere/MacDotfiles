@@ -3,7 +3,6 @@
 # ---------------------------------- #
 
 starship init fish | source
-
 function starship_transient_prompt_func
     echo " "
     starship module character
@@ -35,14 +34,18 @@ if status is-interactive
     alias bat='bat --theme="Catppuccin Mocha"'
     alias lsa='ls -a'
     alias ll='ls -la'
+    alias yy='yazi'
     alias cozypalette='sh ~/Library/cozycat_colors.sh'
-    alias install='brew install -v'
-    alias reinstall='brew reinstall -v'
-    alias uninstall='brew uninstall -v'
-    alias search='brew search'
-    alias outdated='brew outdated'
-    alias upgrade='brew upgrade'
-    alias info='brew info'
+    alias bl='brew list'
+    alias bi='brew install'
+    alias bic='brew install --cask'
+    alias bri='brew reinstall'
+    alias bun='brew uninstall'
+    alias bs='brew search'
+    alias bo='brew outdated'
+    alias bup='brew upgrade'
+    alias bcln='brew cleanup'
+    alias binf='brew info'
     alias df='df -h'
     alias vim='nvim'
     alias ff='fastfetch'
@@ -57,7 +60,7 @@ if status is-interactive
     alias yaziconfig='nvim ~/.config/yazi/yazi.toml'
     alias aerospaceconfig='nvim ~/.aerospace.toml'
     alias starshipconfig='nvim ~/.config/starship.toml'
-    alias chart1='bat ~/Library/Java\ Big\ O\ Complexity\ Cheatsheet.java'
+    alias chart='bat ~/Library/Java\ Big\ O\ Complexity\ Cheatsheet.java'
 
     # ---------------------------- #
     # [INFO] GIT ALIASES FOR FISH  #
@@ -135,8 +138,7 @@ if status is-interactive
     alias grao='git remote add origin'
     alias grrm='git remote remove'
 
-
-# set -x TLDR_AUTO_UPDATE_DISABLED true
+    # set -x TLDR_AUTO_UPDATE_DISABLED true
 
     # -------------------------------- #
     # [info] COMMAND NOT FOUND HANDLER #
@@ -241,10 +243,11 @@ end
 # ---------------------------- #
 # [info] ENVIRONMENT VARIABLES #
 # ---------------------------- #
+# Homebrew
 set -gx PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
-set -gx HOMEBREW_PREFIX /opt/homebrew
-set -gx HOMEBREW_CELLAR /opt/homebrew/Cellar
-set -gx HOMEBREW_REPOSITORY /opt/homebrew
+set -Ux HOMEBREW_COLOR 1
+set -Ux HOMEBREW_NO_ANALYTICS 1
+set -Ux HOMEBREW_NO_ENV_HINTS 1
 
 zoxide init fish | source
 
